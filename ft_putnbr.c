@@ -11,7 +11,6 @@ int abs_val(int num)
         return (num);
 }
 
-/*Print a number of integer type*/
 void    ft_putnbr(int nb)
 {
     char    rev_ary[20];
@@ -21,11 +20,11 @@ void    ft_putnbr(int nb)
     i = 0;
     if (nb >= 0)
         sign = 1;
-	else
-		sign = -1;
-	while (nb / 10 != 0)
-	{
-		rev_ary[i++] = g_base_10[abs_val(nb % 10)];
+    else
+        sign = -1;
+    while (nb / 10 != 0)
+    {
+        rev_ary[i++] = g_base_10[abs_val(nb % 10)];
         nb /= 10;
     }
     rev_ary[i] = g_base_10[abs_val(nb % 10)];
