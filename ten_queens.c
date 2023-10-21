@@ -24,7 +24,7 @@ void	get_candidates(int line, char *state, char *candidates)
 	int		line_diff;
 	int		prev_line;
 
-	//printf("---get_candidates---\n");
+	printf("---get_candidates---\n");
 	i = 0;
 	prev_line = 0;
 	while (i < 10)
@@ -37,22 +37,22 @@ void	get_candidates(int line, char *state, char *candidates)
 	{
 		remove_a_from_b(state[prev_line], candidates);
 		line_diff = line - prev_line;
-		//printf("curent line: (%d)\n", line);
-		//printf("checking queen on col (%c) of row (%d)\n", state[prev_line], prev_line);
-		//printf("line difference: (%d); it forbids ", line_diff);
+		printf("curent line: (%d)\n", line);
+		printf("checking queen on col (%c) of row (%d)\n", state[prev_line], prev_line);
+		printf("line difference: (%d); it forbids ", line_diff);
 		if (state[prev_line] - '0' + line_diff < 10)
 		{
-			//printf("(%c)", (char)(state[prev_line] + line_diff));
+			printf("(%c)", (char)(state[prev_line] + line_diff));
 			remove_a_from_b((char)(state[prev_line] + line_diff), candidates);
 		}
 		if (state[prev_line] - '0' - line_diff >= 0)
 		{
-			//printf("(%c)", (char)(state[prev_line] - line_diff));
+			printf("(%c)", (char)(state[prev_line] - line_diff));
 			remove_a_from_b((char)(state[prev_line] - line_diff), candidates);
 		}
 		prev_line++;
 	}
-	//printf("\ncandidates: (%s)\n", candidates);
+	printf("\ncandidates: (%s)\n", candidates);
 }
 
 void	find_solutions(int line, char *state, int *sum)
@@ -61,12 +61,12 @@ void	find_solutions(int line, char *state, int *sum)
 	int		i;
 	int		j;
 
-	//printf("===find_solutions===\n");
-	if (line == 10)
+	printf("===find_solutions===\n");
+	if (line == 2)
 	{
-		//printf("result: (%s)\n", state);
-		write(1, state, 10);
-		write(1, "\n", 1);
+		printf("result: (%s)\n", state);
+		//write(1, state, 10);
+		//write(1, "\n", 1);
 		*sum += 1;
 		return ;
 	}
@@ -80,7 +80,7 @@ void	find_solutions(int line, char *state, int *sum)
 	{
 		state[j] = candidates[i];
 		state[j + 1] = '\0';
-		//printf("state: (%s)\n", state);
+		printf("state: (%s)\n", state);
 		find_solutions(line + 1, state, sum);
 		state[j] = '\0';
 		i++;
@@ -104,5 +104,5 @@ int	ft_ten_queens_puzzle(void)
 
 int	main(void)
 {
-	ft_ten_queens_puzzle();
+	printf("number of solutions: %d", ft_ten_queens_puzzle());
 }
