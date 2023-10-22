@@ -15,20 +15,15 @@ void	ft_putnbr(int nb)
 {
 	char	rev_ary[20];
 	int		i;
-	int		sign;
 
 	i = 0;
-	if (nb >= 0)
-		sign = 1;
-	else
-		sign = -1;
 	while (nb / 10 != 0)
 	{
 		rev_ary[i++] = g_base_10[abs_val(nb % 10)];
 		nb /= 10;
 	}
 	rev_ary[i] = g_base_10[abs_val(nb % 10)];
-	if (sign == -1)
+	if (nb < 0)
 		write(1, "-", 1);
 	while (i >= 0 && rev_ary[i])
 		write(1, rev_ary + (i--), 1);
