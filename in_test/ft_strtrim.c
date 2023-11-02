@@ -1,5 +1,3 @@
-/* 02/11/2023 2:16 */
-
 #include <stdlib.h>
 #include <stdbool.h>
 
@@ -13,7 +11,7 @@ static size_t	ft_strlen(const char *str)
 	return (len);
 }
 
-static bool	char_in_str(char c, char *str)
+static bool	char_in_str(char c, const char *str)
 {
 	int	i;
 
@@ -27,17 +25,60 @@ static bool	char_in_str(char c, char *str)
 	return (false);
 }
 
-char	*ft_strtrim(char const *s1, char const *set)
+static size_t	get_new_len(char const *s1, char const *set)
 {
-	size_t	i;
-	size_t	org_len;
+	size_t			i;
+	size_t			new_len;
+	size_t const	old_len = ft_strlen(s1);
 
 	i = 0;
 	while (s1[i] && char_in_str(s1[i], set))
 		i++;
-	org_len = ft_str_len(s1);
-	org_len -= i;
+	new_len = old_len - i;
 	i = ft_strlen(s1) - 1;
-	while (s1[i] && char_in_str(s1[i], set))
+	while (char_in_str(s1[i], set))
+	{
+		if (i == 0)
+			break;
 		i--;
+	}
+	new_len -= old_len - i - 1;
+	return (new_len);
 }
+
+char	*ft_strtrim(char const *s1, char const *set)
+{
+	size_t			i;
+	size_t			start;
+	size_t			new_len;
+	size_t const	old_len = ft_strlen(s1);
+	char			*new;
+
+	i = 0;
+	while (s1[i] && char_in_str(s1[i], set))
+		i++;
+	start = i;
+	new_len = get_new_len(s1, set);
+	new = (char *)malloc((new_len + 1) * sizeof(char));
+	i = 0;
+	while (i < new_len)
+	{
+		new[i] = s1[start + i];
+		i++;
+	}
+	new[i] = '\0';
+	return (new);
+}
+
+/*
+#include <stdio.h>
+
+int	main(void)
+{
+	char	*old = "++++add+++";
+	char	*new;
+	char	*trim = "-+";
+	new = ft_strtrim(old, trim);
+	printf("%s\n", new);
+}
+*/
