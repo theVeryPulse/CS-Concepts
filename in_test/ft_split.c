@@ -6,7 +6,7 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 15:39:36 by juli              #+#    #+#             */
-/*   Updated: 2023/11/03 17:26:45 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/03 17:39:21 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <stdlib.h>
 /* tested 03/11/2023 */
 
-size_t	get_str_num(char const *s, char d)
+static size_t	get_str_num(char const *s, char d)
 {
 	size_t	i;
 	size_t	sum;
@@ -33,7 +33,7 @@ size_t	get_str_num(char const *s, char d)
 	return (sum);
 }
 
-char	*extract_str(char const *s, char c)
+static char	*extract_str(char const *s, char c)
 {
 	char	*out_str;
 	size_t	i;
