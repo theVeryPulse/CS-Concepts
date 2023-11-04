@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:24:11 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 12:24:42 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:35:54 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 int	ft_tolower(int c)
 {
@@ -22,6 +24,7 @@ int	ft_tolower(int c)
 
 int	main(void)
 {
-	printf("%c to lower: %c", 'A', ft_tolower('A'));
+	for (int i = 'A'; i <= 'Z' + 2; i++)
+		printf("%c to lower: %c\n", i, ft_tolower(i));
 }
 */

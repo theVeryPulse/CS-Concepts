@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 17:00:21 by juli              #+#    #+#             */
-/*   Updated: 2023/10/30 17:56:05 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 18:32:52 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 #include <stddef.h>
 
@@ -29,6 +31,9 @@ int	main(void)
 {
 	char str[] = "abcdef";
 	ft_memset(str, '!', 4);
-	printf("%s\n",str);
+	printf("ft: %s\n",str);
+	char str1[] = "abcdef";
+	memset(str1, '!', 4);
+	printf("c:  %s\n",str1);
 }
 */

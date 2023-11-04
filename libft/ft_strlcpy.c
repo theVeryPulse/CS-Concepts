@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:16:27 by juli              #+#    #+#             */
-/*   Updated: 2023/10/30 18:23:20 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:22:05 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 #include <stddef.h>
 
@@ -43,11 +45,11 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 int	main(void)
 {
-	char dst[10] = "abc";
+	char dst[4] = "abc";
 	char src[] = "AAAAAAAAAAAAAAAAAAAAAAAAAA";
-	printf("%zu: %s\n", ft_strlcpy(dst, src, (size_t)10), dst);
+	printf("%zu: %s\n", ft_strlcpy(dst, src, 4), dst);
 
-	char dst1[10] = "abc";
-	printf("%zu: %s\n", strlcpy(dst1, src, 10), dst1);
+	char dst1[4] = "abc";
+	printf("%zu: %s\n", strlcpy(dst1, src, 4), dst1);
 }
 */

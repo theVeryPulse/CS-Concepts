@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 19:07:27 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 19:07:28 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 21:09:46 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last test on 04/11/2023 */
 
 #include <stdlib.h>
 
@@ -37,7 +39,7 @@ char	*ft_strdup(const char *s)
 
 int	main(void)
 {
-	char *str = "";
+	char *str = "abc";
 	printf
 	(
 		"c:  %s\n"

@@ -6,9 +6,15 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:27:24 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 14:27:25 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:49:55 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
+
+/*	LOG
+	Bug fixed: return terminator if looking for '\0'
+*/
 
 #include <stdio.h>
 
@@ -21,17 +27,20 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		i--;
 		if (s[i] == c)
 			return ((char *)&s[i]);
+		i--;
 	}
 	return (NULL);
 }
 /*
+#include <string.h>
+
 int	main(void)
 {
 	char *str = "abfcdefg";
-	char c = 'f';
-	printf("Find (%c) in (%s): %s", c, str, ft_strrchr(str, c));
+	char c = '0';
+	printf("Find (%c) in (%s): (%s)\n", c, str, ft_strrchr(str, c));
+	printf("Find (%c) in (%s): (%s)\n", c, str, strrchr(str, c));
 }
 */

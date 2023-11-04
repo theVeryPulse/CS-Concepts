@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 18:42:36 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 18:42:37 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 20:41:46 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 #include <stdlib.h>
 
@@ -21,7 +23,7 @@ void	*ft_calloc(size_t nmemb, size_t size)
 	if (nmemb == 0 || size == 0)
 		return (NULL);
 	bsize = nmemb * size;
-	if (bsize < nmemb || nmemb < size)
+	if (bsize < nmemb || bsize < size)
 		return (NULL);
 	ary = (char *)malloc(bsize);
 	if (ary == NULL)
@@ -38,10 +40,10 @@ int	main(void)
 {
 	char *str;
 	char *str1;
-	size_t nmemb = -10;
-	size_t size = -10;
+	size_t nmemb = 4;
+	size_t size = 4;
 	str = (char *)calloc(nmemb, size);
 	str1 = (char *)ft_calloc(nmemb, size);
-	printf("c:  %s\nft: %s\n", str, str1);
+	printf("c:  %zu\nft: %zu\n", sizeof(str), sizeof(str1));
 }
 */

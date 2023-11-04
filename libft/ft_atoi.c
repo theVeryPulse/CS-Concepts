@@ -5,10 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/31 16:59:13 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 16:59:14 by juli             ###   ########.fr       */
+/*   Created: 2023/11/04 20:42:04 by juli              #+#    #+#             */
+/*   Updated: 2023/11/04 20:42:11 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 int	ft_atoi(const char *nptr)
 {
@@ -40,7 +42,7 @@ int	ft_atoi(const char *nptr)
 
 int	main(void)
 {
-	char *str = "-1";
+	char *str = "2147483648";
 	printf("%d\n", atoi(str));
 	printf("%d\n", ft_atoi(str));
 }

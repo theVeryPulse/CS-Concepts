@@ -6,12 +6,13 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 15:34:23 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 15:34:25 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 20:20:40 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* last tested on 04/11/2023 */
+
 #include <stddef.h>
-#include <stdio.h>
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
@@ -20,7 +21,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	i = 0;
 	while (i < n)
 	{
-		if (((char *)s)[i] == (char)c)
+		if (((unsigned char *)s)[i] == (unsigned char)c)
 			return ((void *)&s[i]);
 		i++;
 	}
@@ -28,11 +29,12 @@ void	*ft_memchr(const void *s, int c, size_t n)
 }
 /*
 #include <string.h>
+#include <stdio.h>
 
 int	main(void)
 {
 	char *str = "abcdef";
-	char c = 'a';
+	char c = 'c';
 	printf
 	(
 		"should be {%s}\n"

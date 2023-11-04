@@ -6,9 +6,11 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 11:27:27 by juli              #+#    #+#             */
-/*   Updated: 2023/10/31 11:27:28 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/04 19:33:25 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+/* last tested on 04/11/2023 */
 
 int	ft_toupper(int c)
 {
@@ -22,6 +24,7 @@ int	ft_toupper(int c)
 
 int	main(void)
 {
-	printf("%c to upper: %c", 'a', ft_toupper('a'));
+	for (int i = 'a'; i <= 'z'; i++)
+		printf("%c to upper: %c\n", i, ft_toupper(i));
 }
 */
