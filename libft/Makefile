@@ -1,11 +1,14 @@
-CC = cc
+CC = gcc
+CFLAGS = -Wall -Wextra -Werror
+CFILES = $(wildcard *.c)
+OFILES = $(SRC:.c=.o)
 NAME = libft.a
 
 # build the static library
-all: $(NAME)
+all: $(NAME) clean
 
 # if all .o files in place, build the library
-$(NAME): $(OBJ)
+$(NAME): $(OFILES)
 	ar rcs $@ $^
 
 # compile each .c into corresponding .o
