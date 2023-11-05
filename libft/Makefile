@@ -20,7 +20,7 @@ clean:
 	rm $(OFILES)
 
 # remove static library as well as all .o files
-fclean: clean
+fclean:
 	rm $(NAME)
 
 # remove all files, then rebuild the library

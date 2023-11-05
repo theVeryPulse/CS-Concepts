@@ -6,14 +6,19 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 14:27:24 by juli              #+#    #+#             */
-/*   Updated: 2023/11/04 19:49:55 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:29:22 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* last tested on 04/11/2023 */
+/* last tested on 05/11/2023 */
 
 /*	LOG
-	Bug fixed: return terminator if looking for '\0'
+
+	05/11/2023
+	Bug fix: handle overflow -> int c as char
+
+	04/11/2023
+	Bug fix: return terminator if looking for '\0'
 */
 
 #include <stdio.h>
@@ -27,7 +32,7 @@ char	*ft_strrchr(const char *s, int c)
 		i++;
 	while (i >= 0)
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		i--;
 	}

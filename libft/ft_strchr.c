@@ -6,17 +6,22 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/31 12:33:34 by juli              #+#    #+#             */
-/*   Updated: 2023/11/04 19:45:17 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/05 18:29:23 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-
-/* last tested on 04/11/2023 */
+/* last tested on 05/11/2023 */
 
 /*	LOG
-	Bug fixed: return terminator if looking for '\0'
+
+	05/11/2023
+	Bug fix: handle overflow -> int c as char
+
+	04/11/2023
+	Bug fix: return terminator if looking for '\0'
 */
+
+#include <stdio.h>
 
 char	*ft_strchr(const char *s, int c)
 {
@@ -25,11 +30,11 @@ char	*ft_strchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] == (char)c)
 			return ((char *)&s[i]);
 		s++;
 	}
-	if (s[i] == c)
+	if (s[i] == (char)c)
 		return ((char *)&s[i]);
 	return (NULL);
 }
@@ -38,9 +43,11 @@ char	*ft_strchr(const char *s, int c)
 
 int	main(void)
 {
-	char *str = "abcdefg";
-	char c = '0';
-	printf("ft: (%c) in (%s): %s\n", c, str, ft_strchr(str, c));
-	printf("c:  (%c) in (%s): %s\n", c, str, strchr(str, c));
+	char str[] = "tripouille";
+	char c = 't' + 256;
+	printf("ft: (%c) in (%s): (%s) at (%p)\n",
+		c, str, ft_strchr(str, 't' + 256), ft_strchr(str, 't' + 256));
+	printf("c:  (%c) in (%s): (%s) at (%p)\n",
+		c, str, strchr(str, 't' + 256), strchr(str, 't' + 256));
 }
 */
