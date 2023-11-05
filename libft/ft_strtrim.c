@@ -6,22 +6,15 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/03 16:56:09 by juli              #+#    #+#             */
-/*   Updated: 2023/11/03 16:57:10 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/05 17:38:13 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+/* last tested on 05/11/2023 */
+
 #include <stdlib.h>
 #include <stdbool.h>
-
-static size_t	ft_strlen(const char *str)
-{
-	size_t	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 static bool	char_in_str(char c, const char *str)
 {
@@ -63,7 +56,6 @@ char	*ft_strtrim(char const *s1, char const *set)
 	size_t			i;
 	size_t			start;
 	size_t			new_len;
-	size_t const	old_len = ft_strlen(s1);
 	char			*new;
 
 	i = 0;

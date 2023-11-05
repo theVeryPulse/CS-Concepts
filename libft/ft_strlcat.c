@@ -10,19 +10,10 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* last tested on 04/11/2023 */
+/* last tested on 05/11/2023 */
 
 #include <stddef.h>
-
-static int	ft_strlen(char *str)
-{
-	int	len;
-
-	len = 0;
-	while (str[len])
-		len++;
-	return (len);
-}
+#include "libft.h"
 
 size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
