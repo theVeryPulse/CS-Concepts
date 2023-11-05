@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 CFILES = $(wildcard *.c)
-OFILES = $(SRC:.c=.o)
+OFILES = $(CFILES:.c=.o)
 NAME = libft.a
 
 # build the static library

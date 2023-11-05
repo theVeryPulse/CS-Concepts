@@ -30,10 +30,10 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	newlen = ft_strlen(&s[start]);
 	if (newlen > len)
 		newlen = len;
-	i = 0;
 	newstr = (char *)malloc((newlen + 1) * sizeof(char));
 	if (newstr == NULL)
 		return (NULL);
+	i = 0;
 	while (i < newlen)
 	{
 		newstr[i] = s[start + i];
