@@ -6,11 +6,15 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 18:16:27 by juli              #+#    #+#             */
-/*   Updated: 2023/11/05 17:37:28 by juli             ###   ########.fr       */
+/*   Updated: 2023/11/05 20:39:38 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 /* last tested on 05/11/2023 */
+
+/*	05/11/2023
+	Bug fix: do nothing when input {size} equals to 0
+*/
 
 #include <stddef.h>
 #include "libft.h"
@@ -21,7 +25,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t	total_len;
 
 	i = 0;
-	total_len = (size_t)ft_strlen((char *)src);
+	total_len = ft_strlen((char *)src);
+	if (size == 0)
+		return (total_len);
 	while (i < size - 1 && src[i])
 	{
 		dst[i] = src[i];
@@ -36,11 +42,14 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 
 int	main(void)
 {
-	char dst[4] = "abc";
-	char src[] = "AAAAAAAAAAAAAAAAAAAAAAAAAA";
-	printf("%zu: %s\n", ft_strlcpy(dst, src, 4), dst);
+	char dest[10]; 
+	memset(dest, 'A', 10);
+	char dest1[10]; 
+	memset(dest1, 'A', 10);
+	char src[] = "012345";
+	size_t size = -1;
 
-	char dst1[4] = "abc";
-	printf("%zu: %s\n", strlcpy(dst1, src, 4), dst1);
+	printf("ft: %zu: (%s)\n", ft_strlcpy(dest, src, size), dest);
+	printf("c:  %zu: (%s)\n", strlcpy(dest1, src, size), dest1);
 }
 */
