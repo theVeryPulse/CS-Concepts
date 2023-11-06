@@ -10,9 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+/* tested 03/11/2023 */
+
+/*	06/11/2023
+	Bug fix: buffer overflow -> check for C-string terminator while looping
+*/
+
 #include <stddef.h>
 #include <stdlib.h>
-/* tested 03/11/2023 */
 
 static size_t	get_str_num(char const *s, char d)
 {
@@ -40,11 +45,11 @@ static char	*extract_str(char const *s, char c)
 	size_t	len;
 
 	len = 0;
-	while (s[len] != c)
+	while (s[len] != c && s[len])
 		len++;
 	out_str = (char *)malloc((len + 1) * sizeof(char));
 	i = 0;
-	while (s[i] != c)
+	while (s[i] != c && i < len)
 	{
 		out_str[i] = s[i];
 		i++;
@@ -84,7 +89,7 @@ char	**ft_split(char const *s, char c)
 
 int	main(void)
 {
-	char *s = "   ";
+	char *s = "012";
 	char c = ' ';
 	char **output;
 

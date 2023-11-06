@@ -10,10 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* last tested on 05/11/2023 */
+/*	Allocates (with malloc(3)) and returns a substring from the string 's'.
+	The substring begins at index 'start' and is of maximum size 'len'.*/
 
-/*	Allocates (with malloc(3)) and returns a substring from the string ’s’.
-	The substring begins at index ’start’ and is of maximum size ’len’.*/
+/*	06/11/2023
+	return an empty string when any parameter is incorrect inpust
+*/
 
 #include <stddef.h>
 #include <stdlib.h>
@@ -25,8 +27,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	size_t	i;
 	size_t	newlen;
 
-	if (start >= ft_strlen(s))
-		return (NULL);
+	if (start >= ft_strlen(s) || len == 0)
+		return ((char *)ft_calloc(1, 1));
 	newlen = ft_strlen(&s[start]);
 	if (newlen > len)
 		newlen = len;
@@ -48,8 +50,8 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 int	main(void)
 {
 	char *s = "0123456789";
-	unsigned int start = 10;
-	size_t len = 3;
+	unsigned int start = 1;
+	size_t len = 1;
 	printf("%s\n", ft_substr(s, start, len));
 }
 */

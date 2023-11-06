@@ -12,7 +12,9 @@
 
 /* Outputs the string 's' to the given file descriptor followed by a newline */
 
-/* tested on 04/11/2023*/
+/*	06/11/2023
+	Bug fix: write newline character to designated file descriptor
+*/
 
 #include <unistd.h>
 
@@ -24,7 +26,7 @@ void	ft_putendl_fd(char *s, int fd)
 	while (s[len])
 		len++;
 	write(fd, s, len);
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }
 /*
 int	main(void)
