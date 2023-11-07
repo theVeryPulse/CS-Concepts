@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstsize.c                                       :+:      :+:    :+:   */
+/*   ft_lstlast.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 15:44:26 by juli              #+#    #+#             */
-/*   Updated: 2023/11/07 15:44:28 by juli             ###   ########.fr       */
+/*   Created: 2023/11/07 19:26:26 by juli              #+#    #+#             */
+/*   Updated: 2023/11/07 19:26:32 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*	Parameters		lst: The beginning of the list.
-	Return value	The length of the list
-	Description		Counts the number of nodes in a list.
-*/
+/* Returns the last node of the list. */
 
 #include "libft.h"
 
-int	ft_lstsize(t_list *lst)
+t_list	*ft_lstlast(t_list *lst)
 {
-	int	len;
-
-	if (!lst)
-		return (0);
-	len = 0;
-	while (lst)
-	{
-		len++;
+	while (lst->next)
 		lst = lst->next;
-	}
-	return (len);
+	return (lst);
 }

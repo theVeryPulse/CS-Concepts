@@ -6,6 +6,8 @@
 #define RED "\x1B[31m"
 #define RESET_COLOR "\x1B[0m"
 
+void delete_content(void* content);
+
 int main(void)
 {
 	t_list	*head;
@@ -49,4 +51,41 @@ int main(void)
 	//printf("len: %d\n", ft_lstsize(head));
 	printf("1.%s 2.%s\n", msg0, msg1);
 	free(lst0); free(lst1); free(lst2);
+
+	/* ft_lstlast */
+	printf("ft_lstlast\t: ");
+	lst0 = ft_lstnew("0");
+	lst1 = ft_lstnew("1");
+	lst2 = ft_lstnew("2");
+	head = lst0;
+	ft_lstadd_front(&head, lst1);
+	ft_lstadd_front(&head, lst2);
+	msg0 = (ft_lstlast(head) == lst0) ? ok : ko;
+	printf("1.%s\n", msg0);
+	free(lst0); free(lst1); free(lst2);
+
+	/* ft_lstadd_back */
+	printf("ft_lstadd_back\t: ");
+	lst0 = ft_lstnew("0");
+	lst1 = ft_lstnew("1");
+	lst2 = ft_lstnew("2");
+	head = lst0;
+	ft_lstadd_back(&head, lst1);
+	ft_lstadd_back(&head, lst2);
+	msg0 = (ft_lstlast(head) == lst2) ? ok : ko;
+	printf("1.%s\n", msg0);
+	free(lst0); free(lst1); free(lst2);
+
+	/* ft_lstdelone */
+	printf("ft_lstdelone\t: ");
+	lst0 = ft_lstnew((void *)"abc");
+	ft_lstdelone(lst0, delete_content);
+	msg0 = (*(char *)(lst0->content) == '\0') ? ok : ko;
+	printf("1.%s\n", msg0);
+
+}
+
+void delete_content(void* content)
+{
+	*(char *)content = '\0';
 }

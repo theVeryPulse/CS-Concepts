@@ -7,13 +7,9 @@ NAME = libft.a
 # build the static library
 all: $(NAME) clean
 
-# if all .o files in place, build the library
+# build the library with the required .o files
 $(NAME): $(OFILES)
 	ar rcs $@ $^
-
-# compile each .c into corresponding .o
-%.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
 
 # remove all .o files
 clean:
@@ -31,6 +27,7 @@ print: $(wildcard *.c)
 	ls -la $(wildcard *.c)
 
 # Compiling for testing
+bonus: $(NAME) clean
 
 SRC_PUTNBR = ft_putnbr_fd.c ft_putchar_fd.c
 TARGET_PUTNBR = ft_putnbr_fd.out
