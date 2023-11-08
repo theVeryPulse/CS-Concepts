@@ -10,7 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/* Returns the last node of the list. */
+/*	Description
+	Returns the last node of the list. */
 
 #include "libft.h"
 

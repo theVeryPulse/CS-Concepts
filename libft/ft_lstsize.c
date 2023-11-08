@@ -10,9 +10,14 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-/*	Parameters		lst: The beginning of the list.
-	Return value	The length of the list
-	Description		Counts the number of nodes in a list.
+/*	Parameters
+	lst: The beginning of the list.
+	
+	Return value
+	The length of the list
+	
+	Description
+	Counts the number of nodes in a list.
 */
 
 #include "libft.h"
