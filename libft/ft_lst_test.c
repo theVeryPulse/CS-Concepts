@@ -6,14 +6,12 @@
 #define RED "\x1B[31m"
 #define RESET_COLOR "\x1B[0m"
 
-void delete_content(void* content);
-
 int main(void)
 {
-	t_list	*head;
-	char	*msg0;
-	char	*msg1;
-	char	*msg2;
+	t_list *head;
+	char *msg0;
+	char *msg1;
+	char *msg2;
 
 	char *ok = (GREEN "OK " RESET_COLOR);
 	char *ko = (RED "KO " RESET_COLOR);
@@ -36,7 +34,8 @@ int main(void)
 	msg1 = (head == new_head && head->next->next == NULL) ? ok : ko;
 	msg2 = (strcmp(head->next->content, "old head") == 0) ? ok : ko;
 	printf("1.%s 2.%s 3.%s\n", msg0, msg1, msg2);
-	free(head->next); free(head);
+	free(head->next);
+	free(head);
 
 	/* ft_lstadd_front */
 	printf("ft_lstsize\t: ");
@@ -48,9 +47,11 @@ int main(void)
 	ft_lstadd_front(&head, lst1);
 	ft_lstadd_front(&head, lst2);
 	msg1 = (ft_lstsize(head) == 3) ? ok : ko;
-	//printf("len: %d\n", ft_lstsize(head));
+	// printf("len: %d\n", ft_lstsize(head));
 	printf("1.%s 2.%s\n", msg0, msg1);
-	free(lst0); free(lst1); free(lst2);
+	free(lst0);
+	free(lst1);
+	free(lst2);
 
 	/* ft_lstlast */
 	printf("ft_lstlast\t: ");
@@ -62,7 +63,9 @@ int main(void)
 	ft_lstadd_front(&head, lst2);
 	msg0 = (ft_lstlast(head) == lst0) ? ok : ko;
 	printf("1.%s\n", msg0);
-	free(lst0); free(lst1); free(lst2);
+	free(lst0);
+	free(lst1);
+	free(lst2);
 
 	/* ft_lstadd_back */
 	printf("ft_lstadd_back\t: ");
@@ -74,18 +77,26 @@ int main(void)
 	ft_lstadd_back(&head, lst2);
 	msg0 = (ft_lstlast(head) == lst2) ? ok : ko;
 	printf("1.%s\n", msg0);
-	free(lst0); free(lst1); free(lst2);
+	free(lst0);
+	free(lst1);
+	free(lst2);
 
 	/* ft_lstdelone */
 	printf("ft_lstdelone\t: ");
-	lst0 = ft_lstnew((void *)"abc");
-	ft_lstdelone(lst0, delete_content);
-	msg0 = (*(char *)(lst0->content) == '\0') ? ok : ko;
+	lst0 = ft_lstnew(malloc(1));
+	ft_lstdelone(lst0, free);
+	msg0 = ok;
 	printf("1.%s\n", msg0);
 
-}
-
-void delete_content(void* content)
-{
-	*(char *)content = '\0';
+	/* ft_lstclear */
+	printf("ft_lstclear\t: ");
+	lst0 = ft_lstnew(malloc(1));
+	lst1 = ft_lstnew(malloc(1));
+	lst2 = ft_lstnew(malloc(1));
+	head = lst0;
+	ft_lstadd_back(&head, lst1);
+	ft_lstadd_back(&head, lst2);
+	ft_lstclear(&head, free);
+	msg0 = (head == NULL) ? ok : ko;
+	printf("1.%s\n", msg0);
 }
