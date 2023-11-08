@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_lstlast.c                                       :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 19:26:26 by juli              #+#    #+#             */
-/*   Updated: 2023/11/08 17:33:50 by juli             ###   ########.fr       */
+/*   Created: 2023/11/08 16:33:50 by juli              #+#    #+#             */
+/*   Updated: 2023/11/08 18:07:47 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/*	Description
-	Returns the last node of the list. */
+/*	Parameters
+	lst: The address of a pointer to a node.
+	f: The address of the function used to iterate on the list.
 
-/*	08/11/2023
-	Bug fix: return NULL when input is NULL
-
+	Description
+	Iterates the list 'lst' and applies the function 'f' on the content of each 
+	node.
 */
 
 #include "libft.h"
 
-t_list	*ft_lstlast(t_list *lst)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	if (!lst)
-		return (NULL);
-	while (lst->next)
+	while (lst != NULL)
+	{
+		f(lst->content);
 		lst = lst->next;
-	return (lst);
+	}
 }

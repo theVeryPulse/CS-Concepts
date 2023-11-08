@@ -22,12 +22,12 @@ fclean:
 # remove all files, then rebuild the library
 re: fclean all
 
+# compile everything 
+bonus: $(NAME) clean
+
 # print information on all .c files
 print: $(wildcard *.c)
 	ls -la $(wildcard *.c)
-
-# Compiling for testing
-bonus: $(NAME) clean
 
 SRC_PUTNBR = ft_putnbr_fd.c ft_putchar_fd.c
 TARGET_PUTNBR = ft_putnbr_fd.out

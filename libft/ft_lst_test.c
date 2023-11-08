@@ -55,14 +55,15 @@ int main(void)
 
 	/* ft_lstlast */
 	printf("ft_lstlast\t: ");
-	lst0 = ft_lstnew("0");
-	lst1 = ft_lstnew("1");
-	lst2 = ft_lstnew("2");
+	lst0 = ft_lstnew((void*)1);
+	lst1 = ft_lstnew((void*)2);
+	lst2 = ft_lstnew((void*)3);
 	head = lst0;
-	ft_lstadd_front(&head, lst1);
-	ft_lstadd_front(&head, lst2);
-	msg0 = (ft_lstlast(head) == lst0) ? ok : ko;
-	printf("1.%s\n", msg0);
+	ft_lstadd_back(&head, lst1);
+	ft_lstadd_back(&head, lst2);
+	msg0 = (ft_lstlast(head) == lst2) ? ok : ko;
+	msg1 = (ft_lstlast(head)->content == (void*)3) ? ok : ko;
+	printf("1.%s 2.%s\n", msg0, msg1);
 	free(lst0);
 	free(lst1);
 	free(lst2);
