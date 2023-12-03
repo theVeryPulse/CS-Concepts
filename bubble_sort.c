@@ -1,27 +1,42 @@
-/* A simple visualised bubble sort */
+/* An implementation of bubble sort 
+   
+   Style: 42 Norm */
 
 #include <stdio.h>
 
-void swap(int *a, int *b)
+static void	swap(int *a, int *b);
+
+/* Sorts an integer array with bubble sort */
+int *bubble_sort(int ary[], size_t len)
+{
+	size_t	i;
+	size_t	sorted;
+	
+	sorted = len - 1;
+	while (sorted > 0)
+	{
+		i = 0;
+		while (i < sorted)
+		{
+			if (ary[i] > ary[i + 1])
+				swap(&ary[i], &ary[i + 1]);
+			i++;
+		}
+		sorted--;
+	}
+	return (ary);
+}
+
+/* Swap the integer value at two addresses */
+static void	swap(int *a, int *b)
 {
 	int temp = *a;
 	*a = *b;
 	*b = temp;
 }
 
-void show_comparison(unsigned int j)
-{
-	for (int k = 0; k <= j; k++)
-	{
-		if (k != j)
-			printf("  ");
-		else
-			printf("^ ^");
-	}
-	printf("\n");
-}
-
-int *bubble_sort_clear(int ary[], size_t len)
+/* A more compact version of same bubble sort, with the use of for loop. */
+int	*bubble_sort_clear(int ary[], size_t len)
 {
 	for (size_t end = len - 1; end > 0; end--)
 	{
@@ -36,37 +51,12 @@ int *bubble_sort_clear(int ary[], size_t len)
 	return (ary);
 }
 
-int *bubble_sort(int ary[], size_t len)
-{
-	size_t end = len - 1;
-	for ( ; end > 0; end--)
-	{
-		for (unsigned int j = 0; j < end ; j++)
-		{
-			for (int k = 0; k < len; k++)
-				printf("%d ", ary[k]);
-			printf("\n");
-			show_comparison(j);
-			if (ary[j] > ary[j+1])
-			{
-				printf("swawpping %d and %d\n", ary[j], ary[j+1]);
-				swap(&ary[j], &ary[j+1]);
-				for (int k = 0; k < len; k++)
-					printf("%d ", ary[k]);
-				printf("\n");
-				show_comparison(j);
-			}
-		}
-	}
-	return (ary);
-}
-
 int main(void)
 {
 	int ary[11] = {0, 2, 8, 5, 2, 1, 4, 5, 0, 2, 7};
 	bubble_sort(ary, 11);
-	printf("length of ary:%zu\n", sizeof(ary)/sizeof(int));
-	for (size_t i = 0; i < sizeof(ary)/sizeof(int); i++)
+	printf("length of ary: %zu\n", sizeof(ary) / sizeof(int));
+	for (size_t i = 0; i < sizeof(ary) / sizeof(int); i++)
 	{
 		printf("%d ", ary[i]);
 	}
