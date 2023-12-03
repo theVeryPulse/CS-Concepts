@@ -4,58 +4,60 @@
 #include <stdio.h>
 #define BOARD_SIZE (10)
 
-static void	find_solutions(int line, char *state, int *sum);
+static void	find_solutions(int line, char *queens_pos, int *solution_count);
 
 static void	remove_char_from_str(char c, char *s);
 
-static void	get_candidates(int line, char *state, char *candidates);
+static void	get_candidates(int line, char *queens_pos, char *candidates);
+
+static int	num_val(char c);
 
 /* Prints all solutions to the ten-queens puzzle. 
    Returns the sum of solutions. 
    
    The solution is saved as a string, each character represents the colomn of
    the queen, character index representing the line of the queen. */
-int	ft_ten_queens_puzzle(void)
+int	ten_queens_puzzle(void)
 {
-	char	state[BOARD_SIZE + 1];
+	char	queens_pos[BOARD_SIZE + 1];
 	int		line;
-	int		sum;
+	int		solution_count;
 
 	line = 0;
-	state[0] = '\0';
-	sum = 0;
-	find_solutions(line, state, &sum);
-	return (sum);
+	queens_pos[0] = '\0';
+	solution_count = 0;
+	find_solutions(line, queens_pos, &solution_count);
+	return (solution_count);
 }
 
 /* Finds solutions recursively.
 
    Both line and state are part of the "status"; sum keeps track of the sum of
    solutions. */
-static void	find_solutions(int line, char *state, int *sum)
+static void	find_solutions(int line, char *queens_pos, int *solution_count)
 {
 	char		candidates[BOARD_SIZE + 1];
-	short int	i;
-	short int	j;
+	short int	candidate_index;
+	short int	position_index;
 
 	if (line == BOARD_SIZE)
 	{
-		printf("result: (%s)\n", state);
-		*sum += 1;
+		printf("result: (%s)\n", queens_pos);
+		*solution_count += 1;
 		return ;
 	}
-	get_candidates(line, state, candidates);
-	i = 0;
-	j = 0;
-	while (state[j])
-		j++;
-	while (candidates[i])
+	get_candidates(line, queens_pos, candidates);
+	candidate_index = 0;
+	position_index = 0;
+	while (queens_pos[position_index])
+		position_index++;
+	while (candidates[candidate_index])
 	{
-		state[j] = candidates[i];
-		state[j + 1] = '\0';
-		find_solutions(line + 1, state, sum);
-		state[j] = '\0';
-		i++;
+		queens_pos[position_index] = candidates[candidate_index];
+		queens_pos[position_index + 1] = '\0';
+		find_solutions(line + 1, queens_pos, solution_count);
+		queens_pos[position_index] = '\0';
+		candidate_index++;
 	}
 }
 
@@ -64,7 +66,7 @@ static void	find_solutions(int line, char *state, int *sum)
    
    Loops through all previous lines and takes out queens of same row, column
    and diagnals. */
-static void	get_candidates(int line, char *state, char *candidates)
+static void	get_candidates(int line, char *queens_pos, char *candidates)
 {
 	short int	i;
 	short int	line_diff;
@@ -72,26 +74,36 @@ static void	get_candidates(int line, char *state, char *candidates)
 
 	i = 0;
 	prev_line = 0;
-	while (i < 10)
+	while (i < BOARD_SIZE)
 	{
 		candidates[i] = i + '0';
 		i++;
 	}
 	candidates[i] = '\0';
-	while (prev_line < BOARD_SIZE && state[prev_line] != '\0')
+	while (prev_line < BOARD_SIZE && queens_pos[prev_line] != '\0')
 	{
-		remove_char_from_str(state[prev_line], candidates);
+		remove_char_from_str(queens_pos[prev_line], candidates);
 		line_diff = line - prev_line;
-		if (state[prev_line] - '0' + line_diff < BOARD_SIZE)
+		if (num_val(queens_pos[prev_line]) + line_diff < BOARD_SIZE)
 		{
-			remove_char_from_str((char)(state[prev_line] + line_diff), candidates);
+			remove_char_from_str((char)(queens_pos[prev_line] + line_diff),
+				candidates);
 		}
-		if (state[prev_line] - '0' - line_diff >= 0)
+		if (num_val(queens_pos[prev_line]) - line_diff >= 0)
 		{
-			remove_char_from_str((char)(state[prev_line] - line_diff), candidates);
+			remove_char_from_str((char)(queens_pos[prev_line] - line_diff),
+				candidates);
 		}
 		prev_line++;
 	}
+}
+
+/* Returns the int value that a char digit represents.
+   For example, (char)'8' returns (int)8 */
+static int	num_val(char c)
+{
+	if (c >= '0' && c <= '9')
+		return (c - '0');
 }
 
 /* Removes a character from a string. Moves all following characters one byte
@@ -114,6 +126,6 @@ static void	remove_char_from_str(char c, char *s)
 
 int	main(void)
 {
-	printf("number of solutions: %d", ft_ten_queens_puzzle());
+	printf("number of solutions: %d", ten_queens_puzzle());
 	return (0);
 }
