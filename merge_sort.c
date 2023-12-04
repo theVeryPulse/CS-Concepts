@@ -6,7 +6,7 @@
 /*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/03 22:27:15 by juli              #+#    #+#             */
-/*   Updated: 2023/12/04 00:07:04 by juli             ###   ########.fr       */
+/*   Updated: 2023/12/04 00:40:22 by juli             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ int	*merge_sort(int *ary, int len)
 	merge_sort(l_half, l_len);
 	merge_sort(r_half, r_len);
 	merge(l_half, l_len, r_half, r_len);
+	return (ary);
 }
 
 /* Merges the sorted left and right halves into a new array, copies the int
@@ -95,7 +96,7 @@ static void	cpy_int_ary(int *dst, int *src, int len)
 		i++;
 	}
 }
-/*
+
 #include <stdio.h>
 
 int	main(void)
@@ -110,4 +111,4 @@ int	main(void)
 	}
 	printf("\n");
 }
-*/
+
