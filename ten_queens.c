@@ -1,4 +1,14 @@
-/* A back-tracking implementation of ten-queens puzzle solution finder. */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ten_queens.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Philip Li <LJHR.UK@outlook.com>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/12/05 23:56:08 by Philip Li         #+#    #+#             */
+/*   Updated: 2023/12/05 23:56:08 by Philip Li        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
@@ -12,7 +22,8 @@ static void	get_candidates(int line, char *queens_pos, char *candidates);
 
 static int	num_val(char c);
 
-/* Prints all solutions to the ten-queens puzzle. 
+/* A back-tracking implementation of ten-queens puzzle solution finder.
+   Prints all solutions to the ten-queens puzzle. 
    Returns the sum of solutions. 
    
    The solution is saved as a string, each character represents the colomn of

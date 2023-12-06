@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: juli <marvin@42.fr>                        +#+  +:+       +#+        */
+/*   By: Philip Li <LJHR.UK@outlook.com>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/12/03 22:27:15 by juli              #+#    #+#             */
-/*   Updated: 2023/12/04 00:40:22 by juli             ###   ########.fr       */
+/*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
+/*   Updated: 2023/12/05 23:55:56 by Philip Li        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,18 +97,17 @@ static void	cpy_int_ary(int *dst, int *src, int len)
 	}
 }
 
-#include <stdio.h>
+// #include <stdio.h>
 
-int	main(void)
-{
-	int	ary[] = {123, 321, 299, 31, 55, 491, 93, 10000, 3, 4, 6};
-	for (int i = 0; i < 10; i++) printf("%d ", ary[i]);
-	printf("\nsorting in progress\n");
-	merge_sort(ary, 10);
-	for (int i = 0; i < 10; i++)
-	{
-		printf("%d ", ary[i]);
-	}
-	printf("\n");
-}
-
+// int	main(void)
+// {
+// 	int	ary[] = {123, 321, 299, 31, 55, 491, 93, 10000, 3, 4, 6};
+// 	for (int i = 0; i < 10; i++) printf("%d ", ary[i]);
+// 	printf("\nsorting in progress\n");
+// 	merge_sort(ary, 10);
+// 	for (int i = 0; i < 10; i++)
+// 	{
+// 		printf("%d ", ary[i]);
+// 	}
+// 	printf("\n");
+// }
