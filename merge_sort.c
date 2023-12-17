@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   merge_sort.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Philip Li <LJHR.UK@outlook.com>            +#+  +:+       +#+        */
+/*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/05 23:55:56 by Philip Li        ###   ########.fr       */
+/*   Updated: 2023/12/17 16:09:57 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,9 @@ int	*merge_sort(int *ary, int len)
 
 /* Merges the sorted left and right halves into a new array, copies the int
    values back into the original array. Each loop, compares the first number in
-   left and right halves, cuts that number into the new array. */
+   left and right halves, cuts that number into the new array.
+   
+   Stable sort: when left equals to right, left takes precedence. */
 static void	merge(int *l_half, int l_len, int *r_half, int r_len)
 {
 	int	*sorted;
@@ -68,7 +70,7 @@ static void	merge(int *l_half, int l_len, int *r_half, int r_len)
 			sorted[i++] = l_half[l_i++];
 		else
 		{
-			if (l_half[l_i] < r_half[r_i])
+			if (l_half[l_i] <= r_half[r_i])
 				sorted[i++] = l_half[l_i++];
 			else
 				sorted[i++] = r_half[r_i++];
