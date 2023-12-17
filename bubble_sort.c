@@ -3,18 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   bubble_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Philip Li <LJHR.UK@outlook.com>            +#+  +:+       +#+        */
+/*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:51 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/05 23:55:51 by Philip Li        ###   ########.fr       */
+/*   Updated: 2023/12/17 17:30:26 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-/* An implementation of bubble sort 
-   
-   Style: 42 Norm */
-
-#include <stdio.h>
+#include <stddef.h>
 
 static void	swap(int *a, int *b);
 
@@ -63,16 +59,4 @@ static void	swap(int *a, int *b)
 // 		}
 // 	}
 // 	return (ary);
-// }
-
-// int main(void)
-// {
-// 	int ary[11] = {0, 2, 8, 5, 2, 1, 4, 5, 0, 2, 7};
-// 	bubble_sort(ary, 11);
-// 	printf("length of ary: %zu\n", sizeof(ary) / sizeof(int));
-// 	for (size_t i = 0; i < sizeof(ary) / sizeof(int); i++)
-// 	{
-// 		printf("%d ", ary[i]);
-// 	}
-// 	printf("\n");
 // }

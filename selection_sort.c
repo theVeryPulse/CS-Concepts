@@ -6,11 +6,11 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:11:24 by Philip            #+#    #+#             */
-/*   Updated: 2023/12/17 16:12:20 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/17 17:14:55 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-static int	min_index(int *ary, int len);
+static int	find_min_index(int *ary, int len);
 
 static void	swap(int *a, int *b);
 
@@ -23,12 +23,12 @@ void	selection_sort(int *ary, int len)
 	i = 0;
 	while (i < len - 2)
 	{
-		swap(ary + i, ary + i + min_index(ary + i, len - i));
+		swap(ary + i, ary + i + find_min_index(ary + i, len - i));
 		i++;
 	}
 }
 
-static int	min_index(int *ary, int len)
+static int	find_min_index(int *ary, int len)
 {
 	int	i;
 	int	min_i;
@@ -56,16 +56,3 @@ static void	swap(int *a, int *b)
 	*a = *b;
 	*b = tmp;
 }
-
-/* 
-#include <stdio.h>
-
-int	main(void)
-{
-	int	ary[] = {123, 321, 299, 31, 55, 491, 93, 10000, 3, 4, 6};
-	int len = sizeof(ary) / sizeof(*ary);
-	selection_sort(ary, len);
-	for (int i = 0; i < len; i++)
-		printf("%d ", ary[i]);
-	return (0);
-} */

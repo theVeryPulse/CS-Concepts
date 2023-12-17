@@ -6,7 +6,7 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/17 16:09:57 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/17 17:31:10 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,18 +98,3 @@ static void	cpy_int_ary(int *dst, int *src, int len)
 		i++;
 	}
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	int	ary[] = {123, 321, 299, 31, 55, 491, 93, 10000, 3, 4, 6};
-// 	for (int i = 0; i < 10; i++) printf("%d ", ary[i]);
-// 	printf("\nsorting in progress\n");
-// 	merge_sort(ary, 10);
-// 	for (int i = 0; i < 10; i++)
-// 	{
-// 		printf("%d ", ary[i]);
-// 	}
-// 	printf("\n");
-// }
