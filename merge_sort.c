@@ -6,7 +6,7 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/18 10:14:11 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/18 18:46:34 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,20 +59,19 @@ static void	merge(int *l_half, int l_len, int *r_half, int r_len)
 	sorted = (int *)malloc(sizeof(int) * (l_len + r_len));
 	if (!sorted)
 		return ;
-	set_to_zero(&i, &r_i, &l_i);
+	i = 0;
+	r_i = 0;
+	l_i = 0;
 	while (i < l_len + r_len)
 	{
 		if (l_i >= l_len)
 			sorted[i++] = r_half[r_i++];
 		else if (r_i >= r_len)
 			sorted[i++] = l_half[l_i++];
+		else if (l_half[l_i] <= r_half[r_i])
+			sorted[i++] = l_half[l_i++];
 		else
-		{
-			if (l_half[l_i] <= r_half[r_i])
-				sorted[i++] = l_half[l_i++];
-			else
-				sorted[i++] = r_half[r_i++];
-		}
+			sorted[i++] = r_half[r_i++];
 	}
 	cpy_int_ary(l_half, sorted, l_len + r_len);
 	free(sorted);
