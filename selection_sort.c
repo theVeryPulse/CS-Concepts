@@ -6,14 +6,15 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/17 16:11:24 by Philip            #+#    #+#             */
-/*   Updated: 2023/12/17 17:14:55 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/18 10:14:52 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 static int	find_min_index(int *ary, int len);
-
 static void	swap(int *a, int *b);
 
+/* Iteratively finds the smallest number in the array.
+   Note: (i < len - 1) loops until the second to last elements */
 void	selection_sort(int *ary, int len)
 {
 	int	i;
@@ -21,7 +22,7 @@ void	selection_sort(int *ary, int len)
 	if (!ary || len <= 0)
 		return ;
 	i = 0;
-	while (i < len - 2)
+	while (i < len - 1)
 	{
 		swap(ary + i, ary + i + find_min_index(ary + i, len - i));
 		i++;

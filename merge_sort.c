@@ -6,16 +6,14 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/17 17:31:10 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/18 10:14:11 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
 static void	merge(int *l_half, int l_len, int *r_half, int r_len);
-
 static void	cpy_int_ary(int *dst, int *src, int len);
-
 static void	set_to_zero(int *i, int *r_i, int *l_i);
 
 /* Sorts an int ary with merge sort. Time complexity of O(n*log(n)).

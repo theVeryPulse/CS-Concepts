@@ -6,19 +6,16 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:51 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/17 17:30:26 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/18 10:32:02 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-
 static void	swap(int *a, int *b);
 
-/* Sorts an integer array with bubble sort */
-int	*bubble_sort(int ary[], size_t len)
+int	*bubble_sort(int *ary, int len)
 {
-	size_t	i;
-	size_t	sorted;
+	int	i;
+	int	sorted;
 
 	sorted = len - 1;
 	while (sorted > 0)
