@@ -8,9 +8,9 @@ int		*bubble_sort(int *ary, int len);
 void	selection_sort(int *ary, int len);
 int		*merge_sort(int *ary, int len);
 void	merge_sort_b(int *ary, int len);
+void	iterative_merge_sort(int *ary, int len);
 void	insertion_sort(int *ary, int len);
 void	quick_sort(int *ary, int len);
-
 
 int	main(void)
 {
@@ -49,6 +49,13 @@ int	main(void)
 	init_int_ary(ary, len);
 	merge_sort_b(ary, len);
 	print_ary(ary, len); printf("Merge sort b\n");
+	for (int i = 0; i < len - 1; i ++)
+		assert(ary[i] <= ary[i + 1]);
+
+	/* Iterative merge sort */
+	init_int_ary(ary, len);
+	iterative_merge_sort(ary, len);
+	print_ary(ary, len); printf("Iterative merge sort b\n");
 	for (int i = 0; i < len - 1; i ++)
 		assert(ary[i] <= ary[i + 1]);
 

@@ -84,6 +84,10 @@ void	iterative_merge_sort(int *ary, int len)
 			mid_i = (left_i + right_i) / 2;
 			merge(ary, left_i, mid_i, right_i);
 			merge_start_i += merge_size;
+
+			/* Merge the unstandard part with the previous standard one */
+			if (merge_start_i + merge_size - 1 >= len) 
+				merge(ary, merge_start_i - merge_size, merge_start_i - 1, len - 1);
 		}
 		merge_size *= 2;
 	}
@@ -96,12 +100,13 @@ void	iterative_merge_sort(int *ary, int len)
 // (6 7) 5 4 3 2 1
 // 6 7 (4 5) 3 2 1
 // 6 7 4 5 (2 3) 1
+// 6 7 4 5 (1 2 3)
 // (4 5 6 7) 2 3 1
 // 
 // (4 5 6 7 | 2 3 1)
 // 
 
-#include <stdio.h>
+/* #include <stdio.h>
 
 int	main(void)
 {
@@ -114,4 +119,4 @@ int	main(void)
 		printf("%d ", ary[i]);
 	}
 	
-}
+} */
