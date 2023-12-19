@@ -55,10 +55,10 @@ static void	merge(int *ary, int left, int mid, int right)
 	int	r_i;
 	int	len;
 
+	len = right - left + 1;
 	aux = (int *)malloc(len * sizeof(int));
 	if (!aux)
 		return ;
-	len = right - left + 1;
 	i = 0;
 	l_i = left;
 	r_i = mid + 1;

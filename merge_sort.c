@@ -6,7 +6,7 @@
 /*   By: Philip <juli@student.42london.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/05 23:55:56 by Philip Li         #+#    #+#             */
-/*   Updated: 2023/12/18 18:46:34 by Philip           ###   ########.fr       */
+/*   Updated: 2023/12/19 16:17:59 by Philip           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static void	merge(int *l_half, int l_len, int *r_half, int r_len);
 static void	cpy_int_ary(int *dst, int *src, int len);
-static void	set_to_zero(int *i, int *r_i, int *l_i);
+// static void	set_to_zero(int *i, int *r_i, int *l_i);
 
 /* Sorts an int ary with merge sort. Time complexity of O(n*log(n)).
 
@@ -77,12 +77,12 @@ static void	merge(int *l_half, int l_len, int *r_half, int r_len)
 	free(sorted);
 }
 
-static void	set_to_zero(int *i, int *r_i, int *l_i)
+/* static void	set_to_zero(int *i, int *r_i, int *l_i)
 {
 	*i = 0;
 	*r_i = 0;
 	*l_i = 0;
-}
+} */
 
 static void	cpy_int_ary(int *dst, int *src, int len)
 {
