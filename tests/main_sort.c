@@ -13,6 +13,7 @@ void	iterative_merge_sort(int *ary, int len);
 void	insertion_sort(int *ary, int len);
 void	quick_sort(int *ary, int len);
 void	counting_sort(int *ary, int len);
+void	radix_sort(int *ary, int len);
 
 static void	init_int_ary(int *ary, int len);
 static void	print_ary(int *ary, int len);
@@ -117,6 +118,18 @@ int	main(void)
 
 	randomize(ary, len);
 	counting_sort(ary, len); /* Sort */
+	print_ary(ary, len);
+	check_ary(ary, len);
+
+	/* Radix sort */
+	printf("\nRadix sort\n");
+	init_int_ary(ary, len);
+	radix_sort(ary, len); /* Sort */
+	print_ary(ary, len);
+	check_ary(ary, len);
+
+	randomize(ary, len);
+	radix_sort(ary, len); /* Sort */
 	print_ary(ary, len);
 	check_ary(ary, len);
 
