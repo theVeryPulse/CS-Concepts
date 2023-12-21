@@ -7,10 +7,11 @@
 
 int		*bubble_sort(int *ary, int len);
 void	selection_sort(int *ary, int len);
+void	insertion_sort(int *ary, int len);
+void	heap_sort(int *ary, int len);
 int		*merge_sort(int *ary, int len);
 void	merge_sort_b(int *ary, int len);
 void	iterative_merge_sort(int *ary, int len);
-void	insertion_sort(int *ary, int len);
 void	quick_sort(int *ary, int len);
 void	counting_sort(int *ary, int len);
 void	radix_sort(int *ary, int len);
@@ -58,6 +59,18 @@ int	main(void)
 
 	randomize(ary, len);
 	insertion_sort(ary, len); /* Sort */
+	print_ary(ary, len);
+	check_ary(ary, len);
+
+	/* Heap sort */
+	printf("\nHeap sort\n");
+	init_int_ary(ary, len);
+	heap_sort(ary, len); /* Sort */
+	print_ary(ary, len);
+	check_ary(ary, len);
+
+	randomize(ary, len);
+	heap_sort(ary, len); /* Sort */
 	print_ary(ary, len);
 	check_ary(ary, len);
 
