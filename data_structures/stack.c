@@ -1,22 +1,25 @@
 /**
+ * https://www.coursera.org/lecture/data-structures/stacks-UdKzQ
+ * 
  * Stack: LIFO (last-in-first-out )
+ * 
  * stack_push(content): adds content to stack
  * stack_pop(): removes and returns most recently-added key
- * 
- * https://www.coursera.org/lecture/data-structures/stacks-UdKzQ
  */
 
-/******************************\
-   Linked List Implementation
-\******************************/
+/********************************\
+    Linked List Implementation    
+\********************************/
 
 #include <stdlib.h>
 
-typedef struct s_stack
+typedef struct s_stack t_stack;
+
+struct s_stack
 {
-	struct s_stack	*next;
-	void			*content;
-}	t_stack;
+	t_stack	*next;
+	void	*content;
+};
 
 void	stack_push(t_stack **stack, void *content)
 {
